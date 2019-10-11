@@ -20,7 +20,7 @@ func main() {
 	for true {
 		to, err := torn.GetChainTimeout(&http.Client{}, argsWithoutProg[0])
 		if err != nil {
-			log.Panic("error while getting chain cooldown")
+			log.Panicf("error while getting chain cooldown: %s", err.Error())
 		}
 		fmt.Printf("Current timeout: %d\n", to)
 
