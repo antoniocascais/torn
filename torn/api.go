@@ -20,7 +20,7 @@ type chain struct {
 	Start    int `json:"start"`
 }
 
-func GetChainCooldown(client *http.Client, apiKey string) (int, error) {
+func GetChainTimeout(client *http.Client, apiKey string) (int, error) {
 	url := fmt.Sprintf("https://api.torn.com/faction/?selections=chain&key=%s", apiKey)
 	req, err := http.NewRequest(http.MethodGet, url, nil)
 	if err != nil {
@@ -41,5 +41,5 @@ func GetChainCooldown(client *http.Client, apiKey string) (int, error) {
 		return -1, err
 	}
 
-	return s.Chain.Cooldown, nil
+	return s.Chain.Timeout, nil
 }
